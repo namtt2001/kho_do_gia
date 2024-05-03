@@ -98,18 +98,18 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="nk-block-head-content">
+
+                                @include('parts.paginate', ['paginator' => $chi_tiet_phieu_xuat])
+                            </div><div class="nk-block-head-content">
                                     <ul class="d-flex">
                                         <li>
-                                            <a href="" class="btn btn-primary d-md-inline-flex">
+                                            <a href={{route('xuat-kho.pdf', ['code' => $code])}} ; class="btn btn-primary d-md-inline-flex">
                                                 <em class="icon ni ni-file-download"></em>
-                                                <span>Export </span>
+                                                <span>IN PHIẾU </span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
-                                @include('parts.paginate', ['paginator' => $chi_tiet_phieu_xuat])
-                            </div>
                         </div>
                     </div>
                 </div>

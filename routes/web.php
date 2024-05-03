@@ -11,6 +11,7 @@ use App\Http\Controllers\ThongKeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\pdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +64,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/tao-phieu', [XuatKhoController::class, 'store'])->name('xuat-kho.store');
         Route::get('/xem/{code}', [XuatKhoController::class, 'show'])->name('xuat-kho.show');
         Route::get('printf', [XuatKhoController::class, 'export'])->name('xuat-kho.export');
+        Route::get('/download/{code}', [XuatKhoController::class, 'exportpdf'])->name('xuat-kho.pdf');
     });
 
     Route::prefix('nha-cung-cap')->group(function () {

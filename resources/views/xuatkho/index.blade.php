@@ -60,6 +60,14 @@
                                             <td class="tb-col tb-col-end">
                                                 <a href="{{ route('xuat-kho.show', $phieu->ma_phieu_xuat) }}" class="btn btn-info btn-sm"><em
                                                         class="icon ni ni-eye"></em><span>Xem</span></a>
+                                                   <a href={{route('xuat-kho.pdf', $phieu->ma_phieu_xuat)}} ; class="btn btn-info btn-sm">
+                                                     <em class="icon ni ni-file-download"></em>
+                                                  <span>IN PHIẾU </span>
+                                                 </a>
+                                            </td>
+                                            <td>
+
+
                                             </td>
                                         </tr>
                                     @endforeach
@@ -79,7 +87,7 @@
                     <h5 class="modal-title" id="scrollableLabel">Nhập thông tin</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{ route('xuat-kho.export') }}" method="POST" enctype="multipart/form-data" id="form-create">
+                <form action="" method="POST" enctype="multipart/form-data" id="form-create">
                     @csrf
                     <div class="modal-body">
                         <div class="row g-gs">

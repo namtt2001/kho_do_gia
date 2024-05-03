@@ -11,6 +11,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class XuatKhoController extends Controller
 {
@@ -183,9 +185,23 @@ class XuatKhoController extends Controller
         ]);
     }
 
-    public function download()
+    public function exportpdf($code)
     {
-        $file = public_path('excel/xuat-kho.xlsx');
-        return response()->download($file, 'xuat-kho.xlsx');
+        $phieu_xuat = XuatKho::where('ma_phieu_xuat', $code)->firstOrFail();
+
+        $chi_tiet_phieu_xuat = ChiTietXuatKho::where('ma_phieu_xuat', $code)->orderBy('id', 'DESC')->paginate(10);
+
+        $data = [
+            'ma_phieu_xuat' => $phieu_xuat->ma_phieu_xuat,
+            'khach_hang' => $phieu_xuat->khach_hang,
+            'dia_chi' => $phieu_xuat->dia_chi,
+            'ngay_xuat' => $phieu_xuat->ngay_xuat,
+            'id_user' => $phieu_xuat->id_user,
+            'mo_ta' => $phieu_xuat->mo_ta ?? 'Không có mô tả cụ thể!',
+            'chi_tiet_phieu_xuat' => $chi_tiet_phieu_xuat,
+        ];
+
+        $pdf = PDF::loadView('xuatkho.xuatkho-pdf', $data);
+        return $pdf->download('xuatkho.pdf');
     }
 }
