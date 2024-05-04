@@ -99,4 +99,4 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/dang-nhap', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/dang-nhap', [LoginController::class, 'login']);
-Route::post('/dang-xuat', [LoginController::class, 'logout'])->name('logout');
+Route::get('/dang-xuat', [LoginController::class, 'logout'])->name('logout');

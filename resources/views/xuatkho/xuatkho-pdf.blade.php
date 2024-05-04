@@ -24,10 +24,10 @@
       </th>
       <th width="300px">
         <center>PHIẾU XUẤT KHO</center>
-        <center>Ngày xuất: </center>
+        <center>Ngày xuất:{{ \Carbon\Carbon::createFromFormat('Y-m-d', $phieu_xuat->ngay_xuat)->format('d-m-Y') }} </center>
       </th>
       <th width="50px">
-        <center>Mã Xuất: </center>
+        <center>Mã Xuất: {{ $phieu_xuat->ma_phieu_xuat }} </center>
       </th>
     </tr>
   </thead>
@@ -38,9 +38,22 @@
 <center><h2>PHIẾU XUẤT KHO</h2></center>
 <table>
   <tr>
-    <td width="120px"><strong>Nhân viên lập phiếu:</strong></td> <td></td>
+    <td width="120px"><strong>Nhân viên lập phiếu:</strong></td> <td>{{ $phieu_xuat->getUsers->name }}</td>
     <td><strong></td>
   </tr>
+  <tr>
+    <td width="120px"><strong>Khách hàng:</strong></td> <td>{{ $phieu_xuat->khach_hang }}</td>
+    <td><strong></td>
+  </tr>
+  <tr>
+    <td width="120px"><strong>Địa chỉ:</strong></td> <td>{{ $phieu_xuat->dia_chi }}</td>
+    <td><strong></td>
+  </tr>
+  <tr>
+    <td width="120px"><strong>Ghi chú:</strong></td> <td>{{ $phieu_xuat->mo_ta }}</td>
+    <td><strong></td>
+  </tr>
+
 </table><br><br>
    <table cellpadding="3px" style="border:thin solid;" >
   <thead>
@@ -95,17 +108,20 @@
           <td style="border:thin blue solid;border-style:dashed;">
 
           </td>
-          <tr>
-    <td width="70px">Tổng giá trị xuất: </td>
-    
-    <td width="70px">{{ number_format($price, 0, '', '.') }} VNĐ</td>
-  </tr>
+
       </tr>
         @endforeach
 
   </tbody>
 </table>
 <table class="sumary-table">
+    <table class="sumary-table">
+        <tr>
+          <td width="480px">Tổng giá trị xuất: </td>
+          <td width="200px">{{ number_format($result, 0, '', ',') }} VNĐ</td>
+        </tr>
+      </table><br>
+
 
 </table><br>
 <table style="margin-bottom:-300px;">
@@ -116,12 +132,12 @@
   </tr>
   <tr>
     <td width="250px" class="customer-title">   <strong>Người lập phiếu</strong></td>
-    <td width="250px" class="writer-title"><strong>Người phụ trách vật tư</strong></td>
-    <td width="250px" class="writer-title"><strong>Thủ kho</strong></td>
+    <td width="250px" class="writer-title"><strong></strong></td>
+    <td width="250px" class="writer-title"><strong>Người Nhận</strong></td>
   </tr>
   <tr>
     <td>(Ký và ghi rõ họ tên)</td>
-    <td>(Ký và ghi rõ họ tên)</td>
+    <td></td>
     <td class="writer-name"><span>(Ký và ghi rõ họ tên)</span></td>
   </tr>
 </table>

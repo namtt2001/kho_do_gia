@@ -21,7 +21,7 @@
                                     <li>
                                         <a href="{{ route('thong-ke.export', ['data' => $data->toJson()]) }}" class="btn btn-primary d-md-inline-flex">
                                             <em class="icon ni ni-file-download"></em>
-                                            <span>In </span>
+                                            <span>In file </span>
                                         </a>
                                     </li>
                                 </ul>

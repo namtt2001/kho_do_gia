@@ -107,7 +107,7 @@
                                                                 </div>
                                                                 <div class="pt-3">
                                                                     <input type="file" name="new_image" accept="image/*" onchange="handleImageChange(event)">
-                                                                    <label for="new_image" id="new_image" class="btn btn-md btn-primary">Thay đổi</label>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>

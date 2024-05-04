@@ -140,12 +140,7 @@
                                             <span>Xác nhận</span>
                                         </button>
                                     </li>
-                                    <li style="margin-left: 10px">
-                                        <button id="btn-export" type="submit" class="btn btn-primary d-md-inline-flex">
-                                            <em class="icon ni ni-file-download"></em>
-                                            <span>Export</span>
-                                        </button>
-                                    </li>
+
                                 </ul>
                             </div>
                         </form>
@@ -154,7 +149,7 @@
             </div>
         </div>
     </div>
-    
+
 @endsection
 
 @section('script')
@@ -292,11 +287,6 @@
             btnSubmit.onclick = function() {
                 apiUrl = '{{ route('api.xuat-kho.store') }}'
             }
-
-            btnExport.onclick = function() {
-                apiUrl = '{{ route('xuat-kho.export') }}'
-            }
-
 
             formCreate.onsubmit = function(e) {
                 e.preventDefault()

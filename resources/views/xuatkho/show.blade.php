@@ -100,15 +100,7 @@
                                 </div>
 
                                 @include('parts.paginate', ['paginator' => $chi_tiet_phieu_xuat])
-                            </div><div class="nk-block-head-content">
-                                    <ul class="d-flex">
-                                        <li>
-                                            <a href={{route('xuat-kho.pdf', ['code' => $code])}} ; class="btn btn-primary d-md-inline-flex">
-                                                <em class="icon ni ni-file-download"></em>
-                                                <span>IN PHIẾU </span>
-                                            </a>
-                                        </li>
-                                    </ul>
+                            </div>
                                 </div>
                         </div>
                     </div>

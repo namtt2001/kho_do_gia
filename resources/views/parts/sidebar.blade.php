@@ -88,6 +88,7 @@
                                 </span>
                                 <span class="nk-menu-text">Thống kê</span>
                             </a>
+
                         </li>
                         @can('user')
                             <li class="{{ request()->is('tai-khoan*') ? 'active' : '' }}">
@@ -99,6 +100,29 @@
                                 </a>
                             </li>
                         @endcan
+                        @can('user')
+                        <li class="{{ request()->is('tai-khoan*') ? 'active' : '' }}">
+                            <a href="{{ route('user.show') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon">
+                                    <em class="icon ni ni-users"></em>
+                                </span>
+                                <span class="nk-menu-text">Thông tin cá nhân</span>
+                            </a>
+                        </li>
+                    @endcan
+                        
+                        <li class="{{ request()->is('thông tin cá nhân*') ? 'active' : '' }}">
+                            <a href="{{ route('logout') }}" class="nk-menu-link">
+                                <span class="nk-menu-icon">
+                                    <em class="icon ni ni-signout"></em>
+                                </span>
+                                <span class="nk-menu-text">Đăng xuất:</span>
+                            </a>
+                        </li>
+
+
+
+
                     @endauth
                 </ul>
             </div>

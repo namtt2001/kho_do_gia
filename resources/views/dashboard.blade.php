@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <style>
         .square-card {
@@ -21,7 +22,7 @@
                         <div class="row ">
                             <div class="col-lg-2 col-xs-5">
                                 <div class="card h-10 border-info square-card p-2 d-flex flex-column align-items-center justify-content-center" style="background-color: #56c6e2;">
-                                    <p class="text-center" >Tổng loại hàng</p>
+                                    <p class="text-center" >Số loại sản phẩm</p>
                                     <i class="fa-regular fa-bag-shopping"></i>
                                     <h3 class="text-center text-black mb-2">{{ $so_luong_loai_hang ?? 0 }}</h3>
                                     <a href="{{ route('loai-hang.index') }}" class="box-footer text-center opacity-40">
@@ -31,7 +32,7 @@
                             </div>
                             <div class="col-lg-2 col-xs-5">
                                 <div class="card h-10 border-info square-card p-2" style="background-color: #56c6e2;">
-                                    <p class="text-center" >Số lượng hàng </p>
+                                    <p class="text-center" >Số sản phẩm  </p>
 
                                     <h3 class="text-center text-black mb-2">{{ $so_luong_hang_hoa ?? 0 }}</h3>
                                     <a href="{{ route('hang-hoa.index') }}" class="box-footer text-center opacity-40">
@@ -41,7 +42,7 @@
                             </div>
                             <div class="col-lg-2 col-xs-5">
                                 <div class="card h-10 border-info square-card p-2" style="background-color: #56c6e2;">
-                                    <p class="text-center" >Số hàng hết</p>
+                                    <p class="text-center" >Số sản phẩm hết</p>
                                     <h3 class="text-center text-black mb-2">{{ $so_luong_het_hang ?? 0 }}</h3>
                                     <a href="{{ route('hang-hoa.index') }}" class="box-footer text-center opacity-40" >
                                         Xem chi tiết <i class="fa fa-arrow-circle-right" ></i>
@@ -59,7 +60,7 @@
                             </div>
                             <div class="col-lg-2 col-xs-5 mb-4">
                                 <div class="card h-10 border-info square-card p-2 bg-info">
-                                    <div class="card-header text-center text-center-black">Nhập kho trong ngày</div>
+                                    <div class="card-header text-center text-center-black">Nhập kho</div>
                                     <h4 class="text-center text-black mb-2">{{ number_format ($tien_nhap_kho ?? 0 )}} VNĐ</h4>
                                     <a href="" class="box-footer text-center opacity-40">
                                          </i>
@@ -68,17 +69,14 @@
                             </div>
                             <div class="col-lg-2 col-xs-5 mb-4">
                                 <div class="card h-10 border-info square-card p-2 bg-info">
-                                    <div class="card-header text-center text-center-black"> Xuất kho trong ngày
+                                    <div class="card-header text-center text-center-black"> Xuất kho
                                     </div>
                                     <h4 class="text-center text-black mb-2">{{ number_format ($tien_xuat_kho ?? 0 )}} VNĐ</h4>
                                     <a href="" class="box-footer text-center opacity-40">
-
-
                                     </a>
                                 </div>
                             </div>
-
-
+                        </div>
 
                             <div class="col-xxl-6">
                                 <div class="card h-90">
@@ -103,7 +101,7 @@
                                     <div class="card-body flex-grow-0 py-2">
                                         <div class="card-title-group">
                                             <div class="card-title">
-                                                <h4 class="title">Top hàng hóa theo doanh thu</h4>
+                                                <h4 class="title">Top hàng hóa xuất kho </h4>
                                             </div>
                                         </div>
                                     </div>
@@ -148,6 +146,7 @@
 @endsection
 
 @section('script')
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
             $.ajax({
